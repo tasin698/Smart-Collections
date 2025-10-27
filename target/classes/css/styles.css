@@ -1,0 +1,215 @@
+/* Smart Collections CSS Styles */
+
+/* Root and Base Styles */
+.root-pane {
+    -fx-background-color: #f5f5f5;
+}
+
+/* Panel Styles */
+.list-panel, .detail-panel, .side-panel {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px;
+}
+
+.panel-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+/* Search Bar */
+.search-bar {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 0 1px 0;
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: #e0e0e0;
+    -fx-text-fill: #333;
+    -fx-font-size: 13px;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #d0d0d0;
+}
+
+.primary-button {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+}
+
+.primary-button:hover {
+    -fx-background-color: #1976D2;
+}
+
+.danger-button {
+    -fx-background-color: #f44336;
+    -fx-text-fill: white;
+}
+
+.danger-button:hover {
+    -fx-background-color: #d32f2f;
+}
+
+/* List Views */
+.list-view {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+}
+
+.list-cell {
+    -fx-background-color: white;
+    -fx-text-fill: #333;
+    -fx-padding: 8px;
+}
+
+.list-cell:selected {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+}
+
+.list-cell:hover {
+    -fx-background-color: #f0f0f0;
+}
+
+/* Text Fields and Areas */
+.text-field, .text-area {
+    -fx-background-color: white;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 3px;
+    -fx-padding: 6px;
+}
+
+.text-field:focused, .text-area:focused {
+    -fx-border-color: #2196F3;
+}
+
+/* ComboBox */
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #ccc;
+}
+
+/* Slider */
+.slider {
+    -fx-padding: 10px 0;
+}
+
+/* Rating Label */
+.rating-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ff9800;
+}
+
+/* Status Bar */
+.status-bar {
+    -fx-background-color: #263238;
+    -fx-text-fill: white;
+}
+
+.status-bar .label {
+    -fx-text-fill: white;
+}
+
+/* Media View */
+.media-view {
+    -fx-background-color: black;
+}
+
+/* Scroll Pane */
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+/* ==================== ENHANCED MEDIA CONTROLS ==================== */
+
+/* Media View Container */
+.media-view {
+    -fx-background-color: #000000;
+    -fx-border-color: #333333;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+}
+
+/* Media Control Buttons */
+.media-button {
+    -fx-background-color: #424242;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+    -fx-min-width: 100px;
+}
+
+.media-button:hover {
+    -fx-background-color: #616161;
+}
+
+.media-button:pressed {
+    -fx-background-color: #303030;
+}
+
+/* Media Timeline Slider */
+.media-slider .track {
+    -fx-background-color: #bdbdbd;
+    -fx-pref-height: 6px;
+}
+
+.media-slider .thumb {
+    -fx-background-color: #2196F3;
+    -fx-pref-width: 14px;
+    -fx-pref-height: 14px;
+    -fx-background-radius: 7px;
+}
+
+.media-slider:hover .thumb {
+    -fx-background-color: #1976D2;
+}
+
+/* Volume Slider */
+.volume-slider .track {
+    -fx-background-color: #e0e0e0;
+    -fx-pref-height: 4px;
+}
+
+.volume-slider .thumb {
+    -fx-background-color: #757575;
+    -fx-pref-width: 12px;
+    -fx-pref-height: 12px;
+    -fx-background-radius: 6px;
+}
+
+.volume-slider:hover .thumb {
+    -fx-background-color: #616161;
+}
+
+/* Time Labels */
+.time-label {
+    -fx-font-family: "Monospace", "Courier New";
+    -fx-font-size: 12px;
+    -fx-text-fill: #424242;
+    -fx-alignment: center;
+}
+
+.volume-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #616161;
+}
+
+.section-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #424242;
+}
