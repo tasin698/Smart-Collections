@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.smartcollections.service.LibraryServiceTest" time="0.291" tests="11" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="23"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="G:\Eclipse IDE\Workspace\SmartCollections\target\test-classes;G:\Eclipse IDE\Workspace\SmartCollections\target\classes;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-controls\24.0.2\javafx-controls-24.0.2.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-controls\24.0.2\javafx-controls-24.0.2-win.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-graphics\24.0.2\javafx-graphics-24.0.2.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-graphics\24.0.2\javafx-graphics-24.0.2-win.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-base\24.0.2\javafx-base-24.0.2.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-base\24.0.2\javafx-base-24.0.2-win.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-fxml\24.0.2\javafx-fxml-24.0.2.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-fxml\24.0.2\javafx-fxml-24.0.2-win.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-media\24.0.2\javafx-media-24.0.2.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-media\24.0.2\javafx-media-24.0.2-win.jar;C:\Users\Tasin\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\Tasin\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Tasin\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\Tasin\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Tasin\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\Tasin\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Australia/Sydney"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="23"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="G:\Java 23\bin"/>
+    <property name="sun.java.command" value="C:\Users\Tasin\AppData\Local\Temp\surefire2067487821383280082\surefirebooter-20251027142209261_3.jar C:\Users\Tasin\AppData\Local\Temp\surefire2067487821383280082 2025-10-27T14-22-09_143-jvmRun1 surefire-20251027142209261_1tmp surefire_0-20251027142209261_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="G:\Eclipse IDE\Workspace\SmartCollections\target\test-classes;G:\Eclipse IDE\Workspace\SmartCollections\target\classes;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-controls\24.0.2\javafx-controls-24.0.2.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-controls\24.0.2\javafx-controls-24.0.2-win.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-graphics\24.0.2\javafx-graphics-24.0.2.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-graphics\24.0.2\javafx-graphics-24.0.2-win.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-base\24.0.2\javafx-base-24.0.2.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-base\24.0.2\javafx-base-24.0.2-win.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-fxml\24.0.2\javafx-fxml-24.0.2.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-fxml\24.0.2\javafx-fxml-24.0.2-win.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-media\24.0.2\javafx-media-24.0.2.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-media\24.0.2\javafx-media-24.0.2-win.jar;C:\Users\Tasin\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\Tasin\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Tasin\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\Tasin\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Tasin\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\Tasin\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\Tasin"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-01-21"/>
+    <property name="java.home" value="G:\Java 23"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="G:\Eclipse IDE\Workspace\SmartCollections"/>
+    <property name="style.color" value="always"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\Tasin\AppData\Local\Temp\surefire2067487821383280082\surefirebooter-20251027142209261_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="23.0.2+7-58"/>
+    <property name="user.name" value="Tasin"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\Tasin\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\Tasin\AppData\Local\Temp\"/>
+    <property name="java.version" value="23.0.2"/>
+    <property name="user.dir" value="G:\Eclipse IDE\Workspace\SmartCollections"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="G:\Java 23\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;G:/Eclipse IDE/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957/jre/bin/server;G:/Eclipse IDE/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.5.v20241023-1957/jre/bin;G:\Java 23\bin;C:\Program Files\Common Files\Oracle\Java\javapath;c:\Users\Tasin\AppData\Local\Programs\cursor\resources\app\bin;C:\Program Files\Microsoft MPI\Bin\;D:\Python\Scripts\;D:\Python\;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\Nsight Compute 2022.1.0\;G:\IBM_SPSS_Statistics_25.0 x64\JRE\bin;C:\Program F;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Tasin\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\PyCharm 2021.3.2\bin;C:\Users\Tasin\AppData\Local\atom\bin;D:\Microsoft VS Code\bin;C:\Users\Tasin\AppData\Local\Microsoft\WindowsApps;C:\Users\Tasin\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\Tasin\.lmstudio\bin;G:\Eclipse IDE\eclipse;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="23.0.2+7-58"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="67.0"/>
+  </properties>
+  <testcase name="testAddItem" classname="com.smartcollections.service.LibraryServiceTest" time="0.154">
+    <system-out><![CDATA[Library loaded successfully: C:\Users\Tasin\.smartcollections\library.dat
+Library Statistics:
+  Items: 13
+  Indexed Keywords: 88
+  Unique Tags: 17
+  Tasks: 0
+  Undo History Size: 14
+  Version: 1
+  Last Saved: Mon Oct 27 14:10:39 AEDT 2025
+Library loaded successfully
+Library Statistics:
+  Items: 13
+  Indexed Keywords: 88
+  Unique Tags: 17
+  Tasks: 0
+  Undo History Size: 14
+  Version: 1
+  Last Saved: Mon Oct 27 14:10:39 AEDT 2025
+All library data cleared
+Added item: Java Programming
+All library data cleared
+]]></system-out>
+  </testcase>
+  <testcase name="testSearch" classname="com.smartcollections.service.LibraryServiceTest" time="0.018">
+    <system-out><![CDATA[Library loaded successfully: C:\Users\Tasin\.smartcollections\library.dat
+Library Statistics:
+  Items: 13
+  Indexed Keywords: 88
+  Unique Tags: 17
+  Tasks: 0
+  Undo History Size: 14
+  Version: 1
+  Last Saved: Mon Oct 27 14:10:39 AEDT 2025
+Library loaded successfully
+Library Statistics:
+  Items: 13
+  Indexed Keywords: 88
+  Unique Tags: 17
+  Tasks: 0
+  Undo History Size: 14
+  Version: 1
+  Last Saved: Mon Oct 27 14:10:39 AEDT 2025
+All library data cleared
+Added item: Java Tutorial
+Added item: Python Guide
+Added item: Java Advanced
+Search for 'java' returned 2 results
+All library data cleared
+]]></system-out>
+  </testcase>
+  <testcase name="testCaseInsensitiveSearch" classname="com.smartcollections.service.LibraryServiceTest" time="0.007">
+    <system-out><![CDATA[Library loaded successfully: C:\Users\Tasin\.smartcollections\library.dat
+Library Statistics:
+  Items: 13
+  Indexed Keywords: 88
+  Unique Tags: 17
+  Tasks: 0
+  Undo History Size: 14
+  Version: 1
+  Last Saved: Mon Oct 27 14:10:39 AEDT 2025
+Library loaded successfully
+Library Statistics:
+  Items: 13
+  Indexed Keywords: 88
+  Unique Tags: 17
+  Tasks: 0
+  Undo History Size: 14
+  Version: 1
+  Last Saved: Mon Oct 27 14:10:39 AEDT 2025
+All library data cleared
+Added item: JavaScript Basics
+Search for 'JAVASCRIPT' returned 1 results
+Search for 'javascript' returned 1 results
+Search for 'JavaScript' returned 1 results
+All library data cleared
+]]></system-out>
+  </testcase>
+  <testcase name="testUpdateItem" classname="com.smartcollections.service.LibraryServiceTest" time="0.013">
+    <system-out><![CDATA[Library loaded successfully: C:\Users\Tasin\.smartcollections\library.dat
+Library Statistics:
+  Items: 13
+  Indexed Keywords: 88
+  Unique Tags: 17
+  Tasks: 0
+  Undo History Size: 14
+  Version: 1
+  Last Saved: Mon Oct 27 14:10:39 AEDT 2025
+Library loaded successfully
+Library Statistics:
+  Items: 13
+  Indexed Keywords: 88
+  Unique Tags: 17
+  Tasks: 0
+  Undo History Size: 14
+  Version: 1
+  Last Saved: Mon Oct 27 14:10:39 AEDT 2025
+All library data cleared
+Added item: Original Title
+Updated item: Updated Title
+All library data cleared
+]]></system-out>
+  </testcase>
+  <testcase name="testDeleteItem" classname="com.smartcollections.service.LibraryServiceTest" time="0.008">
+    <system-out><![CDATA[Library loaded successfully: C:\Users\Tasin\.smartcollections\library.dat
+Library Statistics:
+  Items: 13
+  Indexed Keywords: 88
+  Unique Tags: 17
+  Tasks: 0
+  Undo History Size: 14
+  Version: 1
+  Last Saved: Mon Oct 27 14:10:39 AEDT 2025
+Library loaded successfully
+Library Statistics:
+  Items: 13
+  Indexed Keywords: 88
+  Unique Tags: 17
+  Tasks: 0
+  Undo History Size: 14
+  Version: 1
+  Last Saved: Mon Oct 27 14:10:39 AEDT 2025
+All library data cleared
+Added item: To Delete
+Deleted item: To Delete
+All library data cleared
+]]></system-out>
+  </testcase>
+  <testcase name="testUndo" classname="com.smartcollections.service.LibraryServiceTest" time="0.007">
+    <system-out><![CDATA[Library loaded successfully: C:\Users\Tasin\.smartcollections\library.dat
+Library Statistics:
+  Items: 13
+  Indexed Keywords: 88
+  Unique Tags: 17
+  Tasks: 0
+  Undo History Size: 14
+  Version: 1
+  Last Saved: Mon Oct 27 14:10:39 AEDT 2025
+Library loaded successfully
+Library Statistics:
+  Items: 13
+  Indexed Keywords: 88
+  Unique Tags: 17
+  Tasks: 0
+  Undo History Size: 14
+  Version: 1
+  Last Saved: Mon Oct 27 14:10:39 AEDT 2025
+All library data cleared
+Added item: Test Item
+Undone: Creation of Test Item
+All library data cleared
+]]></system-out>
+  </testcase>
+  <testcase name="testUndoDelete" classname="com.smartcollections.service.LibraryServiceTest" time="0.008">
+    <system-out><![CDATA[Library loaded successfully: C:\Users\Tasin\.smartcollections\library.dat
+Library Statistics:
+  Items: 13
+  Indexed Keywords: 88
+  Unique Tags: 17
+  Tasks: 0
+  Undo History Size: 14
+  Version: 1
+  Last Saved: Mon Oct 27 14:10:39 AEDT 2025
+Library loaded successfully
+Library Statistics:
+  Items: 13
+  Indexed Keywords: 88
+  Unique Tags: 17
+  Tasks: 0
+  Undo History Size: 14
+  Version: 1
+  Last Saved: Mon Oct 27 14:10:39 AEDT 2025
+All library data cleared
+Added item: Test Item
+Deleted item: Test Item
+Undone: Deletion of Test Item
+All library data cleared
+]]></system-out>
+  </testcase>
+  <testcase name="testDuplicateDetection" classname="com.smartcollections.service.LibraryServiceTest" time="0.008">
+    <system-out><![CDATA[Library loaded successfully: C:\Users\Tasin\.smartcollections\library.dat
+Library Statistics:
+  Items: 13
+  Indexed Keywords: 88
+  Unique Tags: 17
+  Tasks: 0
+  Undo History Size: 14
+  Version: 1
+  Last Saved: Mon Oct 27 14:10:39 AEDT 2025
+Library loaded successfully
+Library Statistics:
+  Items: 13
+  Indexed Keywords: 88
+  Unique Tags: 17
+  Tasks: 0
+  Undo History Size: 14
+  Version: 1
+  Last Saved: Mon Oct 27 14:10:39 AEDT 2025
+All library data cleared
+Added item: File Item
+All library data cleared
+]]></system-out>
+  </testcase>
+  <testcase name="testTaskQueue" classname="com.smartcollections.service.LibraryServiceTest" time="0.009">
+    <system-out><![CDATA[Library loaded successfully: C:\Users\Tasin\.smartcollections\library.dat
+Library Statistics:
+  Items: 13
+  Indexed Keywords: 88
+  Unique Tags: 17
+  Tasks: 0
+  Undo History Size: 14
+  Version: 1
+  Last Saved: Mon Oct 27 14:10:39 AEDT 2025
+Library loaded successfully
+Library Statistics:
+  Items: 13
+  Indexed Keywords: 88
+  Unique Tags: 17
+  Tasks: 0
+  Undo History Size: 14
+  Version: 1
+  Last Saved: Mon Oct 27 14:10:39 AEDT 2025
+All library data cleared
+Added item: Study Item 1
+Added task: Low priority task
+Added task: High priority task
+All library data cleared
+]]></system-out>
+  </testcase>
+  <testcase name="testTagFrequency" classname="com.smartcollections.service.LibraryServiceTest" time="0.009">
+    <system-out><![CDATA[Library loaded successfully: C:\Users\Tasin\.smartcollections\library.dat
+Library Statistics:
+  Items: 13
+  Indexed Keywords: 88
+  Unique Tags: 17
+  Tasks: 0
+  Undo History Size: 14
+  Version: 1
+  Last Saved: Mon Oct 27 14:10:39 AEDT 2025
+Library loaded successfully
+Library Statistics:
+  Items: 13
+  Indexed Keywords: 88
+  Unique Tags: 17
+  Tasks: 0
+  Undo History Size: 14
+  Version: 1
+  Last Saved: Mon Oct 27 14:10:39 AEDT 2025
+All library data cleared
+Added item: Item 1
+Added item: Item 2
+Search for 'java' returned 2 results
+All library data cleared
+]]></system-out>
+  </testcase>
+  <testcase name="testRecentlyViewed" classname="com.smartcollections.service.LibraryServiceTest" time="0.008">
+    <system-out><![CDATA[Library loaded successfully: C:\Users\Tasin\.smartcollections\library.dat
+Library Statistics:
+  Items: 13
+  Indexed Keywords: 88
+  Unique Tags: 17
+  Tasks: 0
+  Undo History Size: 14
+  Version: 1
+  Last Saved: Mon Oct 27 14:10:39 AEDT 2025
+Library loaded successfully
+Library Statistics:
+  Items: 13
+  Indexed Keywords: 88
+  Unique Tags: 17
+  Tasks: 0
+  Undo History Size: 14
+  Version: 1
+  Last Saved: Mon Oct 27 14:10:39 AEDT 2025
+All library data cleared
+Added item: Item 1
+Added item: Item 2
+Added item: Item 3
+All library data cleared
+]]></system-out>
+  </testcase>
+</testsuite>

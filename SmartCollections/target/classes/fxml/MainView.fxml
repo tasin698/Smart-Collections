@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.media.MediaView?>
+
+<BorderPane xmlns="http://javafx.com/javafx" 
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.smartcollections.ui.MainController"
+            styleClass="root-pane">
+
+    <!-- TOP: Menu Bar and Search -->
+    <top>
+        <VBox>
+            <!-- Menu Bar -->
+            <MenuBar>
+                <Menu text="File">
+                    <MenuItem text="New Item" onAction="#createNewItem"/>
+                    <MenuItem text="Import Directory..." onAction="#importDirectory"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Exit"/>
+                </Menu>
+                <Menu text="Edit">
+                    <MenuItem text="Undo" onAction="#undoLastAction"/>
+                </Menu>
+                <Menu text="View">
+                    <MenuItem text="Refresh"/>
+                </Menu>
+                <Menu text="Help">
+                    <MenuItem text="About"/>
+                </Menu>
+            </MenuBar>
+            
+            <!-- Search Bar -->
+            <HBox spacing="10" styleClass="search-bar">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                
+                <TextField fx:id="searchField" 
+                          promptText="Search by keyword or tag..." 
+                          HBox.hgrow="ALWAYS"/>
+                
+                <Button fx:id="searchButton" 
+                       text="Search" 
+                       onAction="#performSearch"
+                       styleClass="primary-button"/>
+                
+                <Button fx:id="clearSearchButton" 
+                       text="Clear" 
+                       onAction="#clearSearch"/>
+                
+                <ComboBox fx:id="categoryFilter" 
+                         promptText="Filter by category"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- CENTER: Split View -->
+    <center>
+        <SplitPane dividerPositions="0.3, 0.7">
+            
+            <!-- LEFT: Item List -->
+            <VBox styleClass="list-panel">
+                <Label text="Library Items" styleClass="panel-title">
+                    <padding>
+                        <Insets top="10" right="10" bottom="5" left="10"/>
+                    </padding>
+                </Label>
+                
+                <ListView fx:id="itemListView" VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets top="5" right="10" bottom="10" left="10"/>
+                    </VBox.margin>
+                </ListView>
+                
+                <HBox spacing="5" alignment="CENTER">
+                    <padding>
+                        <Insets top="5" right="10" bottom="10" left="10"/>
+                    </padding>
+                    
+                    <Button fx:id="newButton" 
+                           text="New" 
+                           onAction="#createNewItem"
+                           styleClass="primary-button"/>
+                    
+                    <Button fx:id="importButton" 
+                           text="Import..." 
+                           onAction="#importDirectory"/>
+                    
+                    <Button fx:id="undoButton" 
+                           text="Undo" 
+                           onAction="#undoLastAction"
+                           styleClass="secondary-button"/>
+                </HBox>
+            </VBox>
+            
+            <!-- CENTER: Details Panel -->
+            <VBox fx:id="detailPane" styleClass="detail-panel">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                
+                <Label text="Item Details" styleClass="panel-title"/>
+                
+                <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+                    <VBox spacing="10">
+                        <padding>
+                            <Insets top="10"/>
+                        </padding>
+                        
+                        <!-- Title -->
+                        <VBox spacing="5">
+                            <Label text="Title:"/>
+                            <TextField fx:id="titleField" promptText="Enter title"/>
+                        </VBox>
+                        
+                        <!-- Category -->
+                        <VBox spacing="5">
+                            <Label text="Category:"/>
+                            <ComboBox fx:id="categoryComboBox" maxWidth="Infinity"/>
+                        </VBox>
+                        
+                        <!-- Tags -->
+                        <VBox spacing="5">
+                            <Label text="Tags (comma-separated):"/>
+                            <TextField fx:id="tagsField" promptText="study, important, etc."/>
+                        </VBox>
+                        
+                        <!-- Rating -->
+                        <VBox spacing="5">
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <Label text="Rating:"/>
+                                <Label fx:id="ratingLabel" text="0.0" styleClass="rating-label"/>
+                            </HBox>
+                            <Slider fx:id="ratingSlider" min="0" max="5" value="0" 
+                                   showTickLabels="true" showTickMarks="true" 
+                                   majorTickUnit="1" minorTickCount="0"/>
+                        </VBox>
+                        
+                        <!-- File Path -->
+                        <VBox spacing="5">
+                            <Label text="File Path:"/>
+                            <HBox spacing="5">
+                                <TextField fx:id="filePathField" 
+                                          promptText="Path to file or URL" 
+                                          HBox.hgrow="ALWAYS"/>
+                                <Button fx:id="browseButton" text="Browse..." onAction="#browseFile"/>
+                            </HBox>
+                        </VBox>
+                        
+                        <!-- Description -->
+                        <VBox spacing="5">
+                            <Label text="Description:"/>
+                            <TextArea fx:id="descriptionArea" 
+                                     promptText="Enter description..." 
+                                     prefRowCount="4"/>
+                        </VBox>
+                        
+                        <!-- Media Preview -->
+                        <VBox spacing="5">
+                            <Label text="Media Preview:"/>
+                            <MediaView fx:id="mediaView" fitWidth="400" fitHeight="300"/>
+                            <HBox spacing="5" alignment="CENTER">
+                                <Button fx:id="playButton" text="▶ Play" onAction="#playMedia"/>
+                                <Button fx:id="pauseButton" text="⏸ Pause" onAction="#pauseMedia"/>
+                                <Button fx:id="stopButton" text="⏹ Stop" onAction="#stopMedia"/>
+                            </HBox>
+                        </VBox>
+                        
+                        <!-- Action Buttons -->
+                        <HBox spacing="10" alignment="CENTER">
+                            <padding>
+                                <Insets top="10"/>
+                            </padding>
+                            
+                            <Button fx:id="saveButton" 
+                                   text="Save" 
+                                   onAction="#saveItem"
+                                   styleClass="primary-button"/>
+                            
+                            <Button fx:id="deleteButton" 
+                                   text="Delete" 
+                                   onAction="#deleteItem"
+                                   styleClass="danger-button"/>
+                        </HBox>
+                    </VBox>
+                </ScrollPane>
+            </VBox>
+            
+            <!-- RIGHT: Recent and Tasks -->
+            <VBox styleClass="side-panel">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                
+                <!-- Recently Viewed -->
+                <Label text="Recently Viewed" styleClass="panel-title"/>
+                <ListView fx:id="recentListView" prefHeight="200">
+                    <VBox.margin>
+                        <Insets top="5" bottom="10"/>
+                    </VBox.margin>
+                </ListView>
+                
+                <!-- Tasks -->
+                <Label text="Study Tasks" styleClass="panel-title">
+                    <VBox.margin>
+                        <Insets top="10"/>
+                    </VBox.margin>
+                </Label>
+                <ListView fx:id="taskListView" VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets top="5"/>
+                    </VBox.margin>
+                </ListView>
+                
+                <HBox spacing="5">
+                    <VBox.margin>
+                        <Insets top="5"/>
+                    </VBox.margin>
+                    
+                    <Button fx:id="addTaskButton" 
+                           text="Add Task" 
+                           onAction="#createNewTask"
+                           styleClass="primary-button"
+                           HBox.hgrow="ALWAYS"
+                           maxWidth="Infinity"/>
+                    
+                    <Button fx:id="processTaskButton" 
+                           text="Process Next" 
+                           onAction="#processNextTask"
+                           HBox.hgrow="ALWAYS"
+                           maxWidth="Infinity"/>
+                </HBox>
+            </VBox>
+            
+        </SplitPane>
+    </center>
+
+    <!-- BOTTOM: Status Bar -->
+    <bottom>
+        <HBox styleClass="status-bar" alignment="CENTER_LEFT">
+            <padding>
+                <Insets top="5" right="10" bottom="5" left="10"/>
+            </padding>
+            
+            <Label fx:id="statusLabel" text="Ready"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
