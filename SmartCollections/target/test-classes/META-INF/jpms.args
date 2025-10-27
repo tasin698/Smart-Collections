@@ -1,4 +1,0 @@
---patch-module
-com.smartcollections=_
---add-reads
-com.smartcollections=ALL-UNNAMED

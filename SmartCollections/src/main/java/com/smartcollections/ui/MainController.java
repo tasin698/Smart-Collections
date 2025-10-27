@@ -12,10 +12,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.DirectoryChooser;
+import javafx.stage.Stage;
+import javafx.stage.Screen;
 import javafx.util.Duration;
 import javafx.application.Platform;
 
@@ -45,6 +50,7 @@ public class MainController {
     
     // Media player for audio/video preview
     private MediaPlayer mediaPlayer;
+    private String currentMediaPath; // Track current media to avoid recreating player
     
     // ==================== FXML COMPONENTS ====================
     
@@ -79,6 +85,11 @@ public class MainController {
     @FXML private Button playButton;
     @FXML private Button pauseButton;
     @FXML private Button stopButton;
+    @FXML private Button fullscreenButton;
+    @FXML private Slider mediaTimeSlider;
+    @FXML private Slider volumeSlider;
+    @FXML private Label currentTimeLabel;
+    @FXML private Label durationLabel;
     
     @FXML private Button importButton;
     @FXML private Label statusLabel;
@@ -554,31 +565,38 @@ public class MainController {
         if (currentItem != null && currentItem.hasMedia()) {
             try {
                 String mediaPath = currentItem.getFilePath();
+                if (mediaPath == null || mediaPath.isEmpty()) {
+                    // Try media URL if file path is empty
+                    mediaPath = currentItem.getMediaUrl();
+                }
+                
                 if (mediaPath != null && !mediaPath.isEmpty()) {
-                    File mediaFile = new File(mediaPath);
-                    Media media = new Media(mediaFile.toURI().toString());
-                    
-                    if (mediaPlayer != null) {
-                        mediaPlayer.stop();
+                    // Check if we need to load new media or just resume
+                    if (mediaPlayer != null && mediaPath.equals(currentMediaPath)) {
+                        // Resume from current position
+                        MediaPlayer.Status status = mediaPlayer.getStatus();
+                        if (status == MediaPlayer.Status.PAUSED || status == MediaPlayer.Status.STOPPED) {
+                            mediaPlayer.play();
+                            statusLabel.setText("▶ Playing: " + currentItem.getTitle());
+                        }
+                    } else {
+                        // Load and play new media
+                        loadMediaForCurrentItem();
                     }
-                    
-                    mediaPlayer = new MediaPlayer(media);
-                    mediaView.setMediaPlayer(mediaPlayer);
-                    mediaPlayer.play();
-                    
-                    statusLabel.setText("Playing: " + currentItem.getTitle());
                 }
             } catch (Exception e) {
                 showError("Media Error", "Failed to play media: " + e.getMessage());
             }
+        } else {
+            statusLabel.setText("No media available for this item");
         }
     }
     
     @FXML
     private void pauseMedia() {
-        if (mediaPlayer != null) {
+        if (mediaPlayer != null && mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
             mediaPlayer.pause();
-            statusLabel.setText("Paused");
+            statusLabel.setText("⏸ Paused: " + (currentItem != null ? currentItem.getTitle() : ""));
         }
     }
     
@@ -586,7 +604,259 @@ public class MainController {
     private void stopMedia() {
         if (mediaPlayer != null) {
             mediaPlayer.stop();
-            statusLabel.setText("Stopped");
+            statusLabel.setText("⏹ Stopped");
+        }
+    }
+    
+    /**
+     * Loads media for the current item into the MediaView.
+     * Called when an item with media is selected.
+     */
+    private void loadMediaForCurrentItem() {
+        // Clear any existing media player first
+        disposeMediaPlayer();
+        
+        if (currentItem == null || !currentItem.hasMedia()) {
+            // Disable media controls if no media
+            mediaTimeSlider.setDisable(true);
+            volumeSlider.setDisable(true);
+            currentTimeLabel.setText("00:00");
+            durationLabel.setText("00:00");
+            return;
+        }
+        
+        try {
+            String mediaPath = currentItem.getFilePath();
+            if (mediaPath == null || mediaPath.isEmpty()) {
+                mediaPath = currentItem.getMediaUrl();
+            }
+            
+            if (mediaPath != null && !mediaPath.isEmpty()) {
+                // Create Media object (supports both local files and URLs)
+                Media media;
+                if (mediaPath.startsWith("http://") || mediaPath.startsWith("https://")) {
+                    media = new Media(mediaPath); // URL
+                } else {
+                    File mediaFile = new File(mediaPath);
+                    if (!mediaFile.exists()) {
+                        statusLabel.setText("⚠ Media file not found: " + mediaFile.getName());
+                        mediaTimeSlider.setDisable(true);
+                        volumeSlider.setDisable(true);
+                        return;
+                    }
+                    media = new Media(mediaFile.toURI().toString()); // Local file
+                }
+                
+                // Create and configure MediaPlayer
+                mediaPlayer = new MediaPlayer(media);
+                currentMediaPath = mediaPath;
+                mediaView.setMediaPlayer(mediaPlayer);
+                
+                // Set up media player ready listener
+                mediaPlayer.setOnReady(() -> {
+                    // Update duration label
+                    Duration totalDuration = mediaPlayer.getTotalDuration();
+                    durationLabel.setText(formatTime(totalDuration));
+                    mediaTimeSlider.setMax(totalDuration.toSeconds());
+                    mediaTimeSlider.setDisable(false);
+                    volumeSlider.setDisable(false);
+                    
+                    statusLabel.setText("✓ Media loaded: " + currentItem.getTitle());
+                });
+                
+                // Set up current time listener (updates time label and slider)
+                mediaPlayer.currentTimeProperty().addListener((obs, oldTime, newTime) -> {
+                    if (!mediaTimeSlider.isValueChanging()) {
+                        currentTimeLabel.setText(formatTime(newTime));
+                        mediaTimeSlider.setValue(newTime.toSeconds());
+                    }
+                });
+                
+                // Set up seek slider listener
+                mediaTimeSlider.valueChangingProperty().addListener((obs, wasChanging, isChanging) -> {
+                    if (!isChanging) {
+                        mediaPlayer.seek(Duration.seconds(mediaTimeSlider.getValue()));
+                    }
+                });
+                
+                // Set up volume slider listener
+                volumeSlider.valueProperty().addListener((obs, oldValue, newValue) -> {
+                    if (mediaPlayer != null) {
+                        mediaPlayer.setVolume(newValue.doubleValue());
+                    }
+                });
+                
+                // Set initial volume
+                mediaPlayer.setVolume(volumeSlider.getValue());
+                
+                // Set up error handler
+                mediaPlayer.setOnError(() -> {
+                    String error = mediaPlayer.getError() != null ? 
+                                  mediaPlayer.getError().getMessage() : "Unknown error";
+                    statusLabel.setText("⚠ Media error: " + error);
+                    mediaTimeSlider.setDisable(true);
+                });
+                
+                // Set up end of media listener (auto-stop at end)
+                mediaPlayer.setOnEndOfMedia(() -> {
+                    statusLabel.setText("✓ Playback complete");
+                    mediaPlayer.stop();
+                });
+                
+                // Auto-play the media
+                mediaPlayer.play();
+                statusLabel.setText("▶ Playing: " + currentItem.getTitle());
+            }
+        } catch (Exception e) {
+            statusLabel.setText("⚠ Failed to load media: " + e.getMessage());
+            mediaTimeSlider.setDisable(true);
+            volumeSlider.setDisable(true);
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * Formats a Duration into a readable time string (MM:SS or HH:MM:SS).
+     */
+    private String formatTime(Duration duration) {
+        if (duration == null || duration.isUnknown()) {
+            return "00:00";
+        }
+        
+        int totalSeconds = (int) duration.toSeconds();
+        int hours = totalSeconds / 3600;
+        int minutes = (totalSeconds % 3600) / 60;
+        int seconds = totalSeconds % 60;
+        
+        if (hours > 0) {
+            return String.format("%02d:%02d:%02d", hours, minutes, seconds);
+        } else {
+            return String.format("%02d:%02d", minutes, seconds);
+        }
+    }
+    
+    /**
+     * Properly disposes of the current media player.
+     * Called when switching items or clearing the view.
+     */
+    private void disposeMediaPlayer() {
+        // Exit fullscreen if active
+        if (isMediaFullscreen) {
+            exitMediaFullscreen();
+        }
+        
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.dispose();
+            mediaPlayer = null;
+            currentMediaPath = null;
+            mediaView.setMediaPlayer(null);
+        }
+        
+        // Reset media controls
+        mediaTimeSlider.setValue(0);
+        mediaTimeSlider.setDisable(true);
+        volumeSlider.setDisable(true);
+        currentTimeLabel.setText("00:00");
+        durationLabel.setText("00:00");
+    }
+    
+    // Fullscreen stage for media-only view
+    private Stage fullscreenStage;
+    private VBox originalParent;
+    private boolean isMediaFullscreen = false;
+    
+    /**
+     * Toggles fullscreen mode for ONLY the MediaView (not the whole app).
+     * Creates a separate fullscreen window showing just the media player.
+     */
+    @FXML
+    private void toggleFullscreen() {
+        if (mediaPlayer == null) {
+            statusLabel.setText("⚠ No media loaded");
+            return;
+        }
+        
+        if (!isMediaFullscreen) {
+            // Enter fullscreen - show only MediaView
+            enterMediaFullscreen();
+        } else {
+            // Exit fullscreen - return MediaView to original layout
+            exitMediaFullscreen();
+        }
+    }
+    
+    /**
+     * Enters fullscreen mode by creating a new window with only the MediaView.
+     */
+    private void enterMediaFullscreen() {
+        try {
+            // Save original parent
+            originalParent = (VBox) mediaView.getParent();
+            
+            // Remove MediaView from current layout
+            originalParent.getChildren().remove(mediaView);
+            
+            // Create fullscreen stage
+            fullscreenStage = new Stage();
+            fullscreenStage.setTitle("Media Player - Fullscreen");
+            
+            // Create black background pane for the media
+            StackPane fullscreenRoot = new StackPane();
+            fullscreenRoot.setStyle("-fx-background-color: black;");
+            
+            // Add MediaView to fullscreen pane
+            mediaView.setFitWidth(Screen.getPrimary().getBounds().getWidth());
+            mediaView.setFitHeight(Screen.getPrimary().getBounds().getHeight());
+            fullscreenRoot.getChildren().add(mediaView);
+            
+            // Create scene and show fullscreen
+            Scene fullscreenScene = new Scene(fullscreenRoot);
+            fullscreenStage.setScene(fullscreenScene);
+            fullscreenStage.setFullScreen(true);
+            fullscreenStage.setFullScreenExitHint("Press ESC to exit fullscreen");
+            
+            // Handle ESC key or window close
+            fullscreenStage.setOnCloseRequest(e -> exitMediaFullscreen());
+            fullscreenScene.setOnKeyPressed(e -> {
+                if (e.getCode() == KeyCode.ESCAPE) {
+                    exitMediaFullscreen();
+                }
+            });
+            
+            fullscreenStage.show();
+            isMediaFullscreen = true;
+            statusLabel.setText("⛶ Media fullscreen (Press ESC to exit)");
+            
+        } catch (Exception e) {
+            statusLabel.setText("⚠ Fullscreen error: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * Exits fullscreen mode by returning the MediaView to its original position.
+     */
+    private void exitMediaFullscreen() {
+        if (fullscreenStage != null) {
+            // Close fullscreen window
+            fullscreenStage.close();
+            fullscreenStage = null;
+            
+            // Return MediaView to original parent
+            if (originalParent != null) {
+                // Reset MediaView size
+                mediaView.setFitWidth(400);
+                mediaView.setFitHeight(300);
+                
+                // Find the correct position (first child in the VBox)
+                if (!originalParent.getChildren().contains(mediaView)) {
+                    originalParent.getChildren().add(0, mediaView);
+                }
+            }
+            
+            isMediaFullscreen = false;
+            statusLabel.setText("Normal view");
         }
     }
     
@@ -622,6 +892,9 @@ public class MainController {
         // Format tags
         tagsField.setText(String.join(", ", currentItem.getTags()));
         
+        // Load media preview if item has media
+        loadMediaForCurrentItem();
+        
         // Show detail pane with animation
         detailPane.setVisible(true);
         fadeIn(detailPane);
@@ -634,6 +907,9 @@ public class MainController {
         descriptionArea.clear();
         filePathField.clear();
         tagsField.clear();
+        
+        // Dispose media player when creating new item
+        disposeMediaPlayer();
     }
     
     private void refreshItemList() {

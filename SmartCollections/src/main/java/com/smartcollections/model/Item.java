@@ -233,18 +233,44 @@ public class Item implements Serializable, Comparable<Item> {
      * Checks if this item has media content (audio/video).
      */
     public boolean hasMedia() {
-        return (mediaUrl != null && !mediaUrl.isEmpty()) ||
-               (filePath != null && !filePath.isEmpty() && isMediaFile());
+        if (mediaUrl != null && !mediaUrl.isEmpty()) {
+            return true;
+        }
+        if (filePath != null && !filePath.isEmpty()) {
+            // Check fileType first
+            if (isMediaFile()) {
+                return true;
+            }
+            // Fallback: check file extension from path
+            String lower = filePath.toLowerCase();
+            return lower.endsWith(".mp3") || lower.endsWith(".mp4") || 
+                   lower.endsWith(".wav") || lower.endsWith(".avi") ||
+                   lower.endsWith(".m4a") || lower.endsWith(".aac") ||
+                   lower.endsWith(".flv") || lower.endsWith(".mov") ||
+                   lower.endsWith(".wmv") || lower.endsWith(".webm") ||
+                   lower.endsWith(".ogg") || lower.endsWith(".mkv");
+        }
+        return false;
     }
     
     /**
      * Determines if the file type is a media file (audio/video).
+     * Supports a wide range of audio and video formats.
      */
     private boolean isMediaFile() {
         if (fileType == null) return false;
         String type = fileType.toLowerCase();
-        return type.equals(".mp3") || type.equals(".mp4") || 
-               type.equals(".wav") || type.equals(".avi");
+        // Video formats
+        boolean isVideo = type.equals(".mp4") || type.equals(".avi") || 
+                         type.equals(".mov") || type.equals(".flv") ||
+                         type.equals(".wmv") || type.equals(".webm") ||
+                         type.equals(".mkv");
+        // Audio formats
+        boolean isAudio = type.equals(".mp3") || type.equals(".wav") ||
+                         type.equals(".m4a") || type.equals(".aac") ||
+                         type.equals(".ogg") || type.equals(".flac") ||
+                         type.equals(".wma");
+        return isVideo || isAudio;
     }
     
     /**

@@ -160,12 +160,31 @@
                         
                         <!-- Media Preview -->
                         <VBox spacing="5">
-                            <Label text="Media Preview:"/>
-                            <MediaView fx:id="mediaView" fitWidth="400" fitHeight="300"/>
+                            <Label text="Media Preview:" styleClass="section-label"/>
+                            <MediaView fx:id="mediaView" fitWidth="400" fitHeight="300" 
+                                      preserveRatio="true" styleClass="media-view"/>
+                            
+                            <!-- Media Timeline Slider -->
+                            <HBox spacing="10" alignment="CENTER_LEFT">
+                                <Label fx:id="currentTimeLabel" text="00:00" minWidth="50" styleClass="time-label"/>
+                                <Slider fx:id="mediaTimeSlider" HBox.hgrow="ALWAYS" 
+                                       styleClass="media-slider" disable="true"/>
+                                <Label fx:id="durationLabel" text="00:00" minWidth="50" styleClass="time-label"/>
+                            </HBox>
+                            
+                            <!-- Media Control Buttons -->
                             <HBox spacing="5" alignment="CENTER">
-                                <Button fx:id="playButton" text="▶ Play" onAction="#playMedia"/>
-                                <Button fx:id="pauseButton" text="⏸ Pause" onAction="#pauseMedia"/>
-                                <Button fx:id="stopButton" text="⏹ Stop" onAction="#stopMedia"/>
+                                <Button fx:id="playButton" text="▶ Play" onAction="#playMedia" styleClass="media-button"/>
+                                <Button fx:id="pauseButton" text="⏸ Pause" onAction="#pauseMedia" styleClass="media-button"/>
+                                <Button fx:id="stopButton" text="⏹ Stop" onAction="#stopMedia" styleClass="media-button"/>
+                                <Button fx:id="fullscreenButton" text="⛶ Fullscreen" onAction="#toggleFullscreen" styleClass="media-button"/>
+                            </HBox>
+                            
+                            <!-- Volume Control -->
+                            <HBox spacing="10" alignment="CENTER_LEFT">
+                                <Label text="🔊 Volume:" styleClass="volume-label"/>
+                                <Slider fx:id="volumeSlider" min="0" max="1" value="0.5" 
+                                       prefWidth="150" styleClass="volume-slider"/>
                             </HBox>
                         </VBox>
                         

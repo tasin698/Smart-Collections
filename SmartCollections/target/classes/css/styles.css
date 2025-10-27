@@ -131,3 +131,85 @@
 .scroll-pane .viewport {
     -fx-background-color: transparent;
 }
+
+/* ==================== ENHANCED MEDIA CONTROLS ==================== */
+
+/* Media View Container */
+.media-view {
+    -fx-background-color: #000000;
+    -fx-border-color: #333333;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+}
+
+/* Media Control Buttons */
+.media-button {
+    -fx-background-color: #424242;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+    -fx-min-width: 100px;
+}
+
+.media-button:hover {
+    -fx-background-color: #616161;
+}
+
+.media-button:pressed {
+    -fx-background-color: #303030;
+}
+
+/* Media Timeline Slider */
+.media-slider .track {
+    -fx-background-color: #bdbdbd;
+    -fx-pref-height: 6px;
+}
+
+.media-slider .thumb {
+    -fx-background-color: #2196F3;
+    -fx-pref-width: 14px;
+    -fx-pref-height: 14px;
+    -fx-background-radius: 7px;
+}
+
+.media-slider:hover .thumb {
+    -fx-background-color: #1976D2;
+}
+
+/* Volume Slider */
+.volume-slider .track {
+    -fx-background-color: #e0e0e0;
+    -fx-pref-height: 4px;
+}
+
+.volume-slider .thumb {
+    -fx-background-color: #757575;
+    -fx-pref-width: 12px;
+    -fx-pref-height: 12px;
+    -fx-background-radius: 6px;
+}
+
+.volume-slider:hover .thumb {
+    -fx-background-color: #616161;
+}
+
+/* Time Labels */
+.time-label {
+    -fx-font-family: "Monospace", "Courier New";
+    -fx-font-size: 12px;
+    -fx-text-fill: #424242;
+    -fx-alignment: center;
+}
+
+.volume-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #616161;
+}
+
+.section-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #424242;
+}
