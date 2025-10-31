@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.smartcollections.service.LibraryServiceTest" time="0.318" tests="11" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.smartcollections.service.LibraryServiceTest" time="0.272" tests="11" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="23"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="G:\Java 23\bin"/>
-    <property name="sun.java.command" value="C:\Users\Tasin\AppData\Local\Temp\surefire12801598345622320909\surefirebooter-20251027210400713_3.jar C:\Users\Tasin\AppData\Local\Temp\surefire12801598345622320909 2025-10-27T21-04-00_543-jvmRun1 surefire-20251027210400713_1tmp surefire_0-20251027210400713_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\Tasin\AppData\Local\Temp\surefire16083724855137140943\surefirebooter-20251031020123928_3.jar C:\Users\Tasin\AppData\Local\Temp\surefire16083724855137140943 2025-10-31T02-01-23_615-jvmRun1 surefire-20251031020123928_1tmp surefire_0-20251031020123928_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="G:\Eclipse IDE\Workspace\SmartCollections\SmartCollections\target\test-classes;G:\Eclipse IDE\Workspace\SmartCollections\SmartCollections\target\classes;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-controls\24.0.2\javafx-controls-24.0.2.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-controls\24.0.2\javafx-controls-24.0.2-win.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-graphics\24.0.2\javafx-graphics-24.0.2.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-graphics\24.0.2\javafx-graphics-24.0.2-win.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-base\24.0.2\javafx-base-24.0.2.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-base\24.0.2\javafx-base-24.0.2-win.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-fxml\24.0.2\javafx-fxml-24.0.2.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-fxml\24.0.2\javafx-fxml-24.0.2-win.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-media\24.0.2\javafx-media-24.0.2.jar;C:\Users\Tasin\.m2\repository\org\openjfx\javafx-media\24.0.2\javafx-media-24.0.2-win.jar;C:\Users\Tasin\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\Tasin\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Tasin\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\Tasin\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Tasin\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\Tasin\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Tasin\AppData\Local\Temp\surefire12801598345622320909\surefirebooter-20251027210400713_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Tasin\AppData\Local\Temp\surefire16083724855137140943\surefirebooter-20251031020123928_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="23.0.2+7-58"/>
@@ -59,49 +59,49 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="67.0"/>
   </properties>
-  <testcase name="testAddItem" classname="com.smartcollections.service.LibraryServiceTest" time="0.167">
+  <testcase name="testAddItem" classname="com.smartcollections.service.LibraryServiceTest" time="0.151">
     <system-out><![CDATA[Library loaded successfully: C:\Users\Tasin\.smartcollections\library.dat
 Library Statistics:
-  Items: 14
-  Indexed Keywords: 94
-  Unique Tags: 20
-  Tasks: 0
-  Undo History Size: 15
+  Items: 0
+  Indexed Keywords: 102
+  Unique Tags: 10
+  Tasks: 1
+  Undo History Size: 20
   Version: 1
-  Last Saved: Mon Oct 27 20:57:44 AEDT 2025
+  Last Saved: Fri Oct 31 01:33:54 AEDT 2025
 Library loaded successfully
 Library Statistics:
-  Items: 14
-  Indexed Keywords: 94
-  Unique Tags: 20
-  Tasks: 0
-  Undo History Size: 15
+  Items: 0
+  Indexed Keywords: 102
+  Unique Tags: 10
+  Tasks: 1
+  Undo History Size: 20
   Version: 1
-  Last Saved: Mon Oct 27 20:57:44 AEDT 2025
+  Last Saved: Fri Oct 31 01:33:54 AEDT 2025
 All library data cleared
 Added item: Java Programming
 All library data cleared
 ]]></system-out>
   </testcase>
-  <testcase name="testSearch" classname="com.smartcollections.service.LibraryServiceTest" time="0.018">
+  <testcase name="testSearch" classname="com.smartcollections.service.LibraryServiceTest" time="0.019">
     <system-out><![CDATA[Library loaded successfully: C:\Users\Tasin\.smartcollections\library.dat
 Library Statistics:
-  Items: 14
-  Indexed Keywords: 94
-  Unique Tags: 20
-  Tasks: 0
-  Undo History Size: 15
+  Items: 0
+  Indexed Keywords: 102
+  Unique Tags: 10
+  Tasks: 1
+  Undo History Size: 20
   Version: 1
-  Last Saved: Mon Oct 27 20:57:44 AEDT 2025
+  Last Saved: Fri Oct 31 01:33:54 AEDT 2025
 Library loaded successfully
 Library Statistics:
-  Items: 14
-  Indexed Keywords: 94
-  Unique Tags: 20
-  Tasks: 0
-  Undo History Size: 15
+  Items: 0
+  Indexed Keywords: 102
+  Unique Tags: 10
+  Tasks: 1
+  Undo History Size: 20
   Version: 1
-  Last Saved: Mon Oct 27 20:57:44 AEDT 2025
+  Last Saved: Fri Oct 31 01:33:54 AEDT 2025
 All library data cleared
 Added item: Java Tutorial
 Added item: Python Guide
@@ -110,25 +110,25 @@ Search for 'java' returned 2 results
 All library data cleared
 ]]></system-out>
   </testcase>
-  <testcase name="testCaseInsensitiveSearch" classname="com.smartcollections.service.LibraryServiceTest" time="0.008">
+  <testcase name="testCaseInsensitiveSearch" classname="com.smartcollections.service.LibraryServiceTest" time="0.006">
     <system-out><![CDATA[Library loaded successfully: C:\Users\Tasin\.smartcollections\library.dat
 Library Statistics:
-  Items: 14
-  Indexed Keywords: 94
-  Unique Tags: 20
-  Tasks: 0
-  Undo History Size: 15
+  Items: 0
+  Indexed Keywords: 102
+  Unique Tags: 10
+  Tasks: 1
+  Undo History Size: 20
   Version: 1
-  Last Saved: Mon Oct 27 20:57:44 AEDT 2025
+  Last Saved: Fri Oct 31 01:33:54 AEDT 2025
 Library loaded successfully
 Library Statistics:
-  Items: 14
-  Indexed Keywords: 94
-  Unique Tags: 20
-  Tasks: 0
-  Undo History Size: 15
+  Items: 0
+  Indexed Keywords: 102
+  Unique Tags: 10
+  Tasks: 1
+  Undo History Size: 20
   Version: 1
-  Last Saved: Mon Oct 27 20:57:44 AEDT 2025
+  Last Saved: Fri Oct 31 01:33:54 AEDT 2025
 All library data cleared
 Added item: JavaScript Basics
 Search for 'JAVASCRIPT' returned 1 results
@@ -137,100 +137,100 @@ Search for 'JavaScript' returned 1 results
 All library data cleared
 ]]></system-out>
   </testcase>
-  <testcase name="testUpdateItem" classname="com.smartcollections.service.LibraryServiceTest" time="0.01">
+  <testcase name="testUpdateItem" classname="com.smartcollections.service.LibraryServiceTest" time="0.008">
     <system-out><![CDATA[Library loaded successfully: C:\Users\Tasin\.smartcollections\library.dat
 Library Statistics:
-  Items: 14
-  Indexed Keywords: 94
-  Unique Tags: 20
-  Tasks: 0
-  Undo History Size: 15
+  Items: 0
+  Indexed Keywords: 102
+  Unique Tags: 10
+  Tasks: 1
+  Undo History Size: 20
   Version: 1
-  Last Saved: Mon Oct 27 20:57:44 AEDT 2025
+  Last Saved: Fri Oct 31 01:33:54 AEDT 2025
 Library loaded successfully
 Library Statistics:
-  Items: 14
-  Indexed Keywords: 94
-  Unique Tags: 20
-  Tasks: 0
-  Undo History Size: 15
+  Items: 0
+  Indexed Keywords: 102
+  Unique Tags: 10
+  Tasks: 1
+  Undo History Size: 20
   Version: 1
-  Last Saved: Mon Oct 27 20:57:44 AEDT 2025
+  Last Saved: Fri Oct 31 01:33:54 AEDT 2025
 All library data cleared
 Added item: Original Title
 Updated item: Updated Title
 All library data cleared
 ]]></system-out>
   </testcase>
-  <testcase name="testDeleteItem" classname="com.smartcollections.service.LibraryServiceTest" time="0.008">
+  <testcase name="testDeleteItem" classname="com.smartcollections.service.LibraryServiceTest" time="0.006">
     <system-out><![CDATA[Library loaded successfully: C:\Users\Tasin\.smartcollections\library.dat
 Library Statistics:
-  Items: 14
-  Indexed Keywords: 94
-  Unique Tags: 20
-  Tasks: 0
-  Undo History Size: 15
+  Items: 0
+  Indexed Keywords: 102
+  Unique Tags: 10
+  Tasks: 1
+  Undo History Size: 20
   Version: 1
-  Last Saved: Mon Oct 27 20:57:44 AEDT 2025
+  Last Saved: Fri Oct 31 01:33:54 AEDT 2025
 Library loaded successfully
 Library Statistics:
-  Items: 14
-  Indexed Keywords: 94
-  Unique Tags: 20
-  Tasks: 0
-  Undo History Size: 15
+  Items: 0
+  Indexed Keywords: 102
+  Unique Tags: 10
+  Tasks: 1
+  Undo History Size: 20
   Version: 1
-  Last Saved: Mon Oct 27 20:57:44 AEDT 2025
+  Last Saved: Fri Oct 31 01:33:54 AEDT 2025
 All library data cleared
 Added item: To Delete
 Deleted item: To Delete
 All library data cleared
 ]]></system-out>
   </testcase>
-  <testcase name="testUndo" classname="com.smartcollections.service.LibraryServiceTest" time="0.007">
+  <testcase name="testUndo" classname="com.smartcollections.service.LibraryServiceTest" time="0.008">
     <system-out><![CDATA[Library loaded successfully: C:\Users\Tasin\.smartcollections\library.dat
 Library Statistics:
-  Items: 14
-  Indexed Keywords: 94
-  Unique Tags: 20
-  Tasks: 0
-  Undo History Size: 15
+  Items: 0
+  Indexed Keywords: 102
+  Unique Tags: 10
+  Tasks: 1
+  Undo History Size: 20
   Version: 1
-  Last Saved: Mon Oct 27 20:57:44 AEDT 2025
+  Last Saved: Fri Oct 31 01:33:54 AEDT 2025
 Library loaded successfully
 Library Statistics:
-  Items: 14
-  Indexed Keywords: 94
-  Unique Tags: 20
-  Tasks: 0
-  Undo History Size: 15
+  Items: 0
+  Indexed Keywords: 102
+  Unique Tags: 10
+  Tasks: 1
+  Undo History Size: 20
   Version: 1
-  Last Saved: Mon Oct 27 20:57:44 AEDT 2025
+  Last Saved: Fri Oct 31 01:33:54 AEDT 2025
 All library data cleared
 Added item: Test Item
 Undone: Creation of Test Item
 All library data cleared
 ]]></system-out>
   </testcase>
-  <testcase name="testUndoDelete" classname="com.smartcollections.service.LibraryServiceTest" time="0.008">
+  <testcase name="testUndoDelete" classname="com.smartcollections.service.LibraryServiceTest" time="0.007">
     <system-out><![CDATA[Library loaded successfully: C:\Users\Tasin\.smartcollections\library.dat
 Library Statistics:
-  Items: 14
-  Indexed Keywords: 94
-  Unique Tags: 20
-  Tasks: 0
-  Undo History Size: 15
+  Items: 0
+  Indexed Keywords: 102
+  Unique Tags: 10
+  Tasks: 1
+  Undo History Size: 20
   Version: 1
-  Last Saved: Mon Oct 27 20:57:44 AEDT 2025
+  Last Saved: Fri Oct 31 01:33:54 AEDT 2025
 Library loaded successfully
 Library Statistics:
-  Items: 14
-  Indexed Keywords: 94
-  Unique Tags: 20
-  Tasks: 0
-  Undo History Size: 15
+  Items: 0
+  Indexed Keywords: 102
+  Unique Tags: 10
+  Tasks: 1
+  Undo History Size: 20
   Version: 1
-  Last Saved: Mon Oct 27 20:57:44 AEDT 2025
+  Last Saved: Fri Oct 31 01:33:54 AEDT 2025
 All library data cleared
 Added item: Test Item
 Deleted item: Test Item
@@ -241,46 +241,46 @@ All library data cleared
   <testcase name="testDuplicateDetection" classname="com.smartcollections.service.LibraryServiceTest" time="0.008">
     <system-out><![CDATA[Library loaded successfully: C:\Users\Tasin\.smartcollections\library.dat
 Library Statistics:
-  Items: 14
-  Indexed Keywords: 94
-  Unique Tags: 20
-  Tasks: 0
-  Undo History Size: 15
+  Items: 0
+  Indexed Keywords: 102
+  Unique Tags: 10
+  Tasks: 1
+  Undo History Size: 20
   Version: 1
-  Last Saved: Mon Oct 27 20:57:44 AEDT 2025
+  Last Saved: Fri Oct 31 01:33:54 AEDT 2025
 Library loaded successfully
 Library Statistics:
-  Items: 14
-  Indexed Keywords: 94
-  Unique Tags: 20
-  Tasks: 0
-  Undo History Size: 15
+  Items: 0
+  Indexed Keywords: 102
+  Unique Tags: 10
+  Tasks: 1
+  Undo History Size: 20
   Version: 1
-  Last Saved: Mon Oct 27 20:57:44 AEDT 2025
+  Last Saved: Fri Oct 31 01:33:54 AEDT 2025
 All library data cleared
 Added item: File Item
 All library data cleared
 ]]></system-out>
   </testcase>
-  <testcase name="testTaskQueue" classname="com.smartcollections.service.LibraryServiceTest" time="0.03">
+  <testcase name="testTaskQueue" classname="com.smartcollections.service.LibraryServiceTest" time="0.007">
     <system-out><![CDATA[Library loaded successfully: C:\Users\Tasin\.smartcollections\library.dat
 Library Statistics:
-  Items: 14
-  Indexed Keywords: 94
-  Unique Tags: 20
-  Tasks: 0
-  Undo History Size: 15
+  Items: 0
+  Indexed Keywords: 102
+  Unique Tags: 10
+  Tasks: 1
+  Undo History Size: 20
   Version: 1
-  Last Saved: Mon Oct 27 20:57:44 AEDT 2025
+  Last Saved: Fri Oct 31 01:33:54 AEDT 2025
 Library loaded successfully
 Library Statistics:
-  Items: 14
-  Indexed Keywords: 94
-  Unique Tags: 20
-  Tasks: 0
-  Undo History Size: 15
+  Items: 0
+  Indexed Keywords: 102
+  Unique Tags: 10
+  Tasks: 1
+  Undo History Size: 20
   Version: 1
-  Last Saved: Mon Oct 27 20:57:44 AEDT 2025
+  Last Saved: Fri Oct 31 01:33:54 AEDT 2025
 All library data cleared
 Added item: Study Item 1
 Added task: Low priority task
@@ -288,25 +288,25 @@ Added task: High priority task
 All library data cleared
 ]]></system-out>
   </testcase>
-  <testcase name="testTagFrequency" classname="com.smartcollections.service.LibraryServiceTest" time="0.01">
+  <testcase name="testTagFrequency" classname="com.smartcollections.service.LibraryServiceTest" time="0.007">
     <system-out><![CDATA[Library loaded successfully: C:\Users\Tasin\.smartcollections\library.dat
 Library Statistics:
-  Items: 14
-  Indexed Keywords: 94
-  Unique Tags: 20
-  Tasks: 0
-  Undo History Size: 15
+  Items: 0
+  Indexed Keywords: 102
+  Unique Tags: 10
+  Tasks: 1
+  Undo History Size: 20
   Version: 1
-  Last Saved: Mon Oct 27 20:57:44 AEDT 2025
+  Last Saved: Fri Oct 31 01:33:54 AEDT 2025
 Library loaded successfully
 Library Statistics:
-  Items: 14
-  Indexed Keywords: 94
-  Unique Tags: 20
-  Tasks: 0
-  Undo History Size: 15
+  Items: 0
+  Indexed Keywords: 102
+  Unique Tags: 10
+  Tasks: 1
+  Undo History Size: 20
   Version: 1
-  Last Saved: Mon Oct 27 20:57:44 AEDT 2025
+  Last Saved: Fri Oct 31 01:33:54 AEDT 2025
 All library data cleared
 Added item: Item 1
 Added item: Item 2
@@ -317,22 +317,22 @@ All library data cleared
   <testcase name="testRecentlyViewed" classname="com.smartcollections.service.LibraryServiceTest" time="0.006">
     <system-out><![CDATA[Library loaded successfully: C:\Users\Tasin\.smartcollections\library.dat
 Library Statistics:
-  Items: 14
-  Indexed Keywords: 94
-  Unique Tags: 20
-  Tasks: 0
-  Undo History Size: 15
+  Items: 0
+  Indexed Keywords: 102
+  Unique Tags: 10
+  Tasks: 1
+  Undo History Size: 20
   Version: 1
-  Last Saved: Mon Oct 27 20:57:44 AEDT 2025
+  Last Saved: Fri Oct 31 01:33:54 AEDT 2025
 Library loaded successfully
 Library Statistics:
-  Items: 14
-  Indexed Keywords: 94
-  Unique Tags: 20
-  Tasks: 0
-  Undo History Size: 15
+  Items: 0
+  Indexed Keywords: 102
+  Unique Tags: 10
+  Tasks: 1
+  Undo History Size: 20
   Version: 1
-  Last Saved: Mon Oct 27 20:57:44 AEDT 2025
+  Last Saved: Fri Oct 31 01:33:54 AEDT 2025
 All library data cleared
 Added item: Item 1
 Added item: Item 2
